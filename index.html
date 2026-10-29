@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>门店补货与库存协同 · FDE 交付仓库</title>
+<style>
+  :root { --ink:#16211e; --muted:#64736e; --line:#dfe7e3; --accent:#1f4e4a; --bg:#f6f9f7; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif; color:var(--ink); background:var(--bg); line-height:1.7; }
+  header { background:var(--accent); color:#fff; padding:42px 24px 38px; }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  .kicker { font-size:12px; letter-spacing:2px; opacity:.75; }
+  h1 { font-size:30px; margin:8px 0 10px; letter-spacing:.5px; }
+  header p { margin:0; opacity:.86; font-size:14px; max-width:720px; }
+  .meta { display:flex; gap:18px; flex-wrap:wrap; margin-top:18px; font-size:12.5px; opacity:.8; }
+  main { max-width:1040px; margin:-22px auto 60px; padding:0 24px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:16px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px 22px; box-shadow:0 6px 18px rgba(22,33,30,.04); }
+  .card h2 { font-size:16px; margin:0 0 6px; }
+  .card .no { font-size:11px; color:var(--accent); background:#e7f1ec; display:inline-block; padding:1px 8px; border-radius:999px; margin-bottom:8px; letter-spacing:1px; }
+  .card p { margin:0 0 12px; color:var(--muted); font-size:13px; }
+  .card a { color:var(--accent); text-decoration:none; font-size:13px; border-bottom:1px solid #cad8d3; margin-right:12px; }
+  .card a:hover { border-color:var(--accent); }
+  .hero { background:#fff; border:1px solid var(--line); border-radius:14px; padding:22px 24px; margin-bottom:16px; }
+  .hero h2 { font-size:15px; margin:0 0 8px; }
+  .hero p { margin:0; color:#3c4e49; font-size:13.5px; }
+  .btn { display:inline-block; background:var(--accent); color:#fff; padding:10px 20px; border-radius:10px; text-decoration:none; font-size:14px; margin-top:14px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; margin-top:10px; }
+  th,td { text-align:left; padding:8px 6px; border-bottom:1px solid #eef2f0; }
+  th { font-size:12px; color:#3c4e49; }
+  td.num { text-align:right; font-variant-numeric:tabular-nums; }
+  footer { text-align:center; color:var(--muted); font-size:12px; padding:24px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">FDE 全流程 · 业务挖掘 → 交付</div>
+    <h1>门店补货与库存协同</h1>
+    <p>拾光连锁 48 家门店「一边缺货、一边积压」的根因不在预测，而在缺货信号靠微信群、补货量靠人工 Excel、跨店调拨靠电话。本仓库给出从业务挖掘到最小可用系统的完整交付。</p>
+    <div class="meta">
+      <span>企业：拾光连锁（合成业务场景）</span>
+      <span>门店：48 家 / 华东三城</span>
+      <span>版本：v1.0 · 2026-10-29</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h2>先看这个</h2>
+    <p>MVP 是可直接操作的单页系统：缺货上报 → 建议量 → 硬约束校验 → 例外复核 → 下发 / 调拨 → 收货 → 指标与审计，规则引擎为真实逻辑，数据存本地。</p>
+    <a class="btn" href="mvp/index.html">打开最小可用系统 →</a>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <span class="no">要求 1</span>
+      <h2>业务挖掘</h2>
+      <p>业务机会清单、五项指标基线、项目章程与干系人地图、四来源收敛、证据台账与待核实问题。</p>
+      <a href="docs/01-业务挖掘.md">阅读文档</a>
+    </div>
+    <div class="card">
+      <span class="no">要求 2</span>
+      <h2>行业分析</h2>
+      <p>连锁零售规模与政策、业态结构、共性痛点、标杆实践、技术供给与价格带、对本项目的启示。</p>
+      <a href="docs/02-行业分析.docx">下载 docx</a><a href="docs/02-行业分析.md">读 md</a>
+    </div>
+    <div class="card">
+      <span class="no">要求 3</span>
+      <h2>两张流程图</h2>
+      <p>现状泳道图与数智化转型后泳道图，标注人工转录点、口径不一致点、硬约束与人工升级节点。</p>
+      <a href="docs/03-流程图-现状.png">现状</a><a href="docs/03-流程图-数智化转型后.png">转型后</a><a href="docs/03-流程图-源文件.md">mermaid 源码</a>
+    </div>
+    <div class="card">
+      <span class="no">要求 4</span>
+      <h2>设计方案与报价</h2>
+      <p>方案比较、架构分层、建议量与硬约束、数据契约与权限矩阵、评估计划与停止条件；三档报价与条款。</p>
+      <a href="docs/04-设计方案.md">设计方案</a><a href="docs/05-报价单.xlsx">报价单 xlsx</a><a href="docs/05-报价说明.md">报价说明</a>
+    </div>
+    <div class="card">
+      <span class="no">要求 5</span>
+      <h2>最小 MVP</h2>
+      <p>5 个页面 + 规则引擎 + 审计；可用 node 直接验证 engine.js；Puppeteer 跑通过完整端到端流程。</p>
+      <a href="mvp/index.html">进入系统</a><a href="docs/06-MVP说明.md">说明与演示脚本</a>
+    </div>
+    <div class="card">
+      <span class="no">总览</span>
+      <h2>交付索引</h2>
+      <p>5 项要求对照表、7 项评分要点对照、关键数字口径一致性检查。</p>
+      <a href="docs/00-交付索引.md">查看索引</a><a href="README.md">README</a>
+    </div>
+  </div>
+
+  <div class="hero" style="margin-top:16px">
+    <h2>现状基线与试点目标</h2>
+    <table>
+      <thead><tr><th>指标</th><th class="num">现状（人工期）</th><th class="num">MVP 实测</th><th class="num">试点目标</th></tr></thead>
+      <tbody>
+        <tr><td>单均处理时长（上报→下发中位数）</td><td class="num">4.2 小时</td><td class="num">&lt; 1 分钟</td><td class="num">≤ 40 分钟</td></tr>
+        <tr><td>单均返工次数</td><td class="num">1.7 次</td><td class="num">0.25 次</td><td class="num">≤ 0.5 次</td></tr>
+        <tr><td>单据版本正确率</td><td class="num">82%</td><td class="num">100%（3 单样本）</td><td class="num">≥ 96%</td></tr>
+        <tr><td>建议采用率</td><td class="num">未统计</td><td class="num">75%</td><td class="num">≥ 70% 并建立基线</td></tr>
+        <tr><td>人工复核成本</td><td class="num">63 元/单</td><td class="num">14 元/单</td><td class="num">降 50%</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:10px;color:var(--muted);font-size:12px">MVP 数值为单次演示会话（4 单）实测，样本量小，仅用于说明变化方向；口径与《01-业务挖掘》第 2 节一致。</p>
+  </div>
+</main>
+
+<footer>合成业务场景 · 仅使用训练项目资料 · 不连接任何真实业务系统</footer>
+</body>
+</html>

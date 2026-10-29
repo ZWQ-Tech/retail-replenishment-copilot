@@ -1,0 +1,15 @@
+# 临时与生成物
+.DS_Store
+Thumbs.db
+*.log
+__pycache__/
+*.pyc
+node_modules/
+.tooling/
+.edge_*/
+.edge_prof/
+
+# 文档临时文件（Word 打开时产生）
+~$*.docx
+~$*.xlsx
+*.pdf.tmp
