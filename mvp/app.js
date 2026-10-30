@@ -74,6 +74,38 @@
     orders.forEach((o) => {
       if (o.status === "reported") { o.createdAt = now - (25 + pend * 35) * 60000; pend++; }
     });
+    // 待收货单据应是「刚下发不久」，否则 20 天前下发仍未收货不合理；保持 4.2 小时处理时长口径不变
+    let wait = 0;
+    orders.forEach((o) => {
+      if (o.status === "issued") {
+        const issuedAt = now - (3 + wait * 5) * 3600000 - 12 * 60000;
+        o.issuedAt = issuedAt;
+        o.createdAt = issuedAt - (210 + Math.floor(rnd() * 85)) * 60000;
+        wait++;
+      }
+    });
+    // 让「跨店调拨」开箱可用：把前两张已下发单落到 DC 缺货品项（S003 饭团 9 件、S014 关东煮 6 件），
+    // 即便先收货消化掉一张，调拨页仍有候选，不依赖操作顺序。
+    const dcShort = ["S003", "S014"];
+    let di = 0;
+    orders.filter((o) => o.status === "issued").forEach((o) => {
+      if (di >= dcShort.length) return;
+      if (D.dc[dcShort[di]] >= o.final) return;
+      const id = dcShort[di];
+      const sku = D.skus.find((x) => x.id === id);
+      const want = Math.max(24, D.dc[id] + sku.caseSize * 2);
+      const objId = "REQ" + o.id.replace("REQ", "");
+      const a = audits.find((x) => x.object === objId && x.action === "下发补货单");
+      if (a) a.after = "数量 " + want;
+      o.skuId = id;
+      o.suggested = want;
+      o.final = want;
+      o.expected = want;
+      o.confidence = "低";
+      o.ruleId = "R-DC-02";
+      o.reason = "DC 可用 " + D.dc[id] + " 件不足，转跨店调拨";
+      di++;
+    });
     orders.sort((a, b) => b.createdAt - a.createdAt);
     audits.sort((a, b) => b.at - a.at);
     return { orders: orders, transfers: [], audits: audits.slice(0, 40), seq: seq, settings: { stale: false } };
