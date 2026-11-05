@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>门店补货与库存协同 · 最小可用系统（MVP）</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4e4a'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23fff'%3E%E8%A1%A5%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="logo">补</span>拾光连锁 · 补货协同台</div>
+  <span class="snap" id="snap">数据快照 —</span>
+  <div class="spacer"></div>
+  <button class="ghost" id="btn-reset">重置演示数据</button>
+  <button class="ghost" id="btn-help">演示说明</button>
+</header>
+
+<div class="layout">
+  <aside class="side">
+    <div class="nav-title">工作台</div>
+    <button data-view="dash" class="active"><span class="dot"></span>指标看板</button>
+    <button data-view="report"><span class="dot"></span>缺货上报 <span class="badge-n" id="n-shortage" hidden></span></button>
+    <button data-view="review"><span class="dot"></span>建议审核 <span class="badge-n" id="n-review" hidden></span></button>
+    <button data-view="transfer"><span class="dot"></span>跨店调拨 <span class="badge-n" id="n-transfer" hidden></span></button>
+    <button data-view="receive"><span class="dot"></span>到货确认 <span class="badge-n" id="n-receive" hidden></span></button>
+    <div class="nav-title" style="margin-top:12px">追溯</div>
+    <button data-view="audit"><span class="dot"></span>审计日志</button>
+    <button data-view="rules"><span class="dot"></span>规则与参数</button>
+  </aside>
+
+  <main id="main"></main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="data.js"></script>
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

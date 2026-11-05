@@ -30,6 +30,18 @@ MVP 为纯前端实现（HTML + CSS + 原生 JS，数据存 localStorage），�
 
 总览：[docs/00-交付索引.md](docs/00-交付索引.md)（含 5 项要求对照、7 项评分要点对照、数字口径一致性检查）
 
+### 课程结业材料（按课堂板书目录）
+
+| 板书要求 | 位置 | 内容 |
+|---|---|---|
+| 1 访谈记录（md / json / csv） | [docs/访谈记录/](docs/访谈记录/00-汇总.md) | 5 场访谈、221 分钟、37 组问答，三种格式同源 |
+| 2 原始项目资料 | [docs/原始项目资料/](docs/原始项目资料/00-说明.md) | 48 店、1,842 SKU、96 单、1,147 条群消息，统计量与基线口径逐项对齐 |
+| 3 业务挖掘报告 md | [docs/01-业务挖掘.md](docs/01-业务挖掘.md) | 同要求 1 |
+| 4 现状流程图 jpg | [docs/03-流程图-现状.jpg](docs/03-流程图-现状.jpg) | 另附 png / svg / mermaid 源文件 |
+| 5 项目设计方案 docx / md | [docs/04-设计方案.docx](docs/04-设计方案.docx) · [md](docs/04-设计方案.md) | 同一内容的排版版与源文件 |
+| 6 AI 改造后流程图 jpg | [docs/03-流程图-数智化转型后.jpg](docs/03-流程图-数智化转型后.jpg) | 同上 |
+| 7 项目 MVP（Demo） | [src/](src/README.md) | 与 `mvp/` 同一套代码 |
+
 ## 报价概览
 
 | 方案 | 范围 | 周期 | 含税总价 |
@@ -58,26 +70,31 @@ MVP 为纯前端实现（HTML + CSS + 原生 JS，数据存 localStorage），�
 .
 ├── index.html                     # GitHub Pages 入口（导航页）
 ├── docs/
-│   ├── 00-交付索引.md              # 要求对照 + 评分要点对照
+│   ├── 00-交付索引.md              # 要求对照 + 评分要点对照 + 板书目录对照
 │   ├── 01-业务挖掘.md              # 要求 1
+│   ├── 访谈记录/                    # 5 份访谈 md + 汇总 + csv + json
+│   ├── 原始项目资料/                # 门店/SKU/台账/群消息/差异/报废/版本链
 │   ├── 02-行业分析.md / .docx      # 要求 2
-│   ├── 03-流程图-现状.svg / .png
-│   ├── 03-流程图-数智化转型后.svg / .png
+│   ├── 03-流程图-现状.svg / .png / .jpg
+│   ├── 03-流程图-数智化转型后.svg / .png / .jpg
 │   ├── 03-流程图-源文件.md          # mermaid 源码
-│   ├── 04-设计方案.md              # 要求 4
+│   ├── 04-设计方案.md / .docx      # 要求 4
 │   ├── 05-报价单.xlsx / 05-报价说明.md
 │   ├── 06-MVP说明.md               # 要求 5
 │   └── screenshots/                # 系统截图
-├── mvp/                           # 最小可用系统
+├── mvp/                           # 最小可用系统（Pages 入口）
 │   ├── index.html / style.css
 │   ├── data.js                    # 合成数据（确定性生成）
 │   ├── engine.js                  # 规则引擎（纯函数，可单测）
 │   ├── app.js                     # 交互与状态
 │   └── README.md
-└── tools/                         # 可复现的生成脚本
-    ├── gen_flow.py                # 生成两张泳道图 SVG
-    ├── gen_quote.py               # 生成报价单 xlsx
-    └── md2docx.py                 # markdown → docx（A4/宋体小四/1.5 倍行距）
+├── src/                           # 最小可用系统（课程 src 目录，与 mvp 同源）
+├── tools/                         # 可复现的生成脚本
+│   ├── gen_flow.py                # 生成两张泳道图 SVG
+│   ├── gen_quote.py               # 生成报价单 xlsx
+│   ├── gen_interviews.py          # 生成访谈记录 md / csv / json
+│   ├── gen_source_data.py         # 生成原始项目资料（统计量与基线对齐）
+│   └── md2docx.py                 # markdown → docx（A4/宋体小四/1.5 倍行距）
 ```
 
 ## 本地运行与复现

@@ -1,0 +1,62 @@
+{
+  "ticket_id": "RC2026091801",
+  "store": "ST001 上海徐汇店",
+  "sku": "S0004 鲜牛奶 950ml",
+  "event_date": "2026-09-18",
+  "versions": [
+    {
+      "version": "v1",
+      "time": "2026-09-18 08:41",
+      "author": "林亦舟（店长）",
+      "qty": 12,
+      "channel": "微信群",
+      "note": "巡店发现货架见底，拍照片上报"
+    },
+    {
+      "version": "v3",
+      "time": "2026-09-18 10:20",
+      "author": "唐映秋（计划员）",
+      "qty": 12,
+      "channel": "Excel",
+      "note": "抄入补货申请，待核在途"
+    },
+    {
+      "version": "v4",
+      "time": "2026-09-18 14:35",
+      "author": "唐映秋（计划员）",
+      "qty": 10,
+      "channel": "Excel",
+      "note": "WMS 显示在途 8 箱，扣减后改为 10"
+    },
+    {
+      "version": "v5",
+      "time": "2026-09-18 15:02",
+      "author": "顾明岚（运营总监）",
+      "qty": 10,
+      "channel": "电话",
+      "note": "要求控制库存，维持 10 箱"
+    },
+    {
+      "version": "v6",
+      "time": "2026-09-18 16:10",
+      "author": "林亦舟（店长）",
+      "qty": 12,
+      "channel": "电话",
+      "note": "店长坚持 12 箱，称周末客流上升"
+    },
+    {
+      "version": "v7",
+      "time": "2026-09-18 17:22",
+      "author": "唐映秋（计划员）",
+      "qty": 10,
+      "channel": "系统下发",
+      "note": "按 v5 口径下发，未采纳店长复议"
+    }
+  ],
+  "outcome": {
+    "issued_qty": 10,
+    "sold_out_time": "2026-09-19 10:05",
+    "stockout_hours": 9.5,
+    "complaints": 3
+  }
+}
